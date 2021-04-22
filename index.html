@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Load the Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load CSS-->
+    <link rel="stylesheet" href="main.css">
+    <!-- Load JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <title>Finnegan's Bar & Restaurant</title>
+</head>
+<body>
+
+    <!-- The below section is initially hidden-->
+    <div id="order-confirmed-background"></div><!-- A transparent background that will show when order is confirmed-->
+    <!-- Div that holds the order information to be displayed once order is submitted-->
+    <div id = 'order-confirmed-content'>
+        <h2 id="order-information"></h2><!--Is blank initially but then populated when order selected-->
+        <button id = 'logout' onclick='logOut()'>Log-Out</button>
+        <button id = 'menu' onclick='backToMenu()'>Menu</button>
+    </div>
+    
+    <!-- Container for the full page-->
+   <div class = page-container>
+        <!-- Container for the left side of the page (Finnegans heading and main image)-->
+        <div class="left">
+            <div class="welcome-heading">
+                <h1>Finnegans</h1>
+                <p id ='intro-para'>The new restaurant and bar in town.
+                    Ready to take your order now!</p>
+            </div>
+            <div class="main-image">
+                <img src="main-img.png" alt='Illustration image of a chefs hat'>
+            </div>
+        </div>
+
+        <!-- Container for the right side of the page (Log in form and Order Form)-->
+        <div class="right">
+            <!-- Container area for the 2 forms-->
+            <div class="main-form" >
+                <!-- Log in form(holds the input areas for Username and Password)-->
+                <form id = log-in-form class="show-form">
+                    <table>
+                        <tr>
+                          <td><input type="text" id="user-name" name="user-name" placeholder="User Name"></td>
+                          <td><input type="password" id="password" name="password" placeholder="Password"></td>
+                        </tr>
+                    </table>
+                    <!-- Button to submit the log-in form-->
+                    <input type="submit" value='submit' id="submit-button">
+                </form>
+                
+                
+                <!-- Form that allows user to place an order-->
+                <form id = "place-order-form" class="hide-form"><!-- Initial class is the hidden class, this form will only be shown after user logs in-->
+                    <table>
+                        <tr> 
+                            <!-- Drop-down menu that allows user to select size of the burger)-->
+                          <td><select name="burger-size" id="burger-size" class = 'order-input'><!-- Values of 7, 9, 17.50 refer to the burger price-->
+                            <option value="0">Size</option>
+                            <option value="7">6oz large</option>
+                            <option value="9">10oz Extra Large</option>
+                            <option value="17.50">16oz Supersize</option>
+                          </select></td>
+                          <td><input type="number" id="burger-quantity" name="burger-quantity" class = 'order-input' placeholder="Quantity" min="1"></td><!-- Input to select quantity of burgers-->
+                        </tr>
+                        <tr>
+                            <td><input type="text" placeholder = "discount-code" id ="discount-code" class = 'order-input'></td><!-- Input for optional discount code-->
+                        </tr>
+                        <tr id ="display-cost">
+                            <td>Total Cost</td><td id="total-cost"></td>
+                        </tr>
+                    </table>
+                    <input type="submit" value='submit'>
+                    <!-- Div that holds a warning regarding the supersize burger, jquery will show this if supersize option selected-->
+                    <div id="supersize-warning">
+                        <p> note: The Supersize option is very large and is to be enjoyed alongside a healthy and balanced diet</p>
+                        
+                     </div>
+                </form>
+            </div>
+        </div>
+    </div>
+      
+
+
+
+
+       
+
+<script src = script.js></script>   
+</body>
+</html>
